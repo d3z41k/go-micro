@@ -22,3 +22,6 @@ frontApp
 logrus.log
 tls/
 
+# Database
+/project/db-data/postgres/*
+
