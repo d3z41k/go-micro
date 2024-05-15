@@ -41,20 +41,20 @@
         let sent = document.getElementById("payload");
         let received = document.getElementById("received");
 
-        logBtn.addEventListener("click", function () {
+        logBtn.addEventListener("click", function() {
             const payload = {
-                action: 'log',
+                action: "log",
                 log: {
                     name: "event",
-                    message: "This is a test message"
+                    data: "Some kind of data",
                 }
             }
 
             const headers = new Headers();
-            headers.append("Content-Type", "application/json")
+            headers.append("Content-Type", "application/json");
 
             const body = {
-                method: 'POST',
+                method: "POST",
                 body: JSON.stringify(payload),
                 headers: headers,
             }
@@ -65,15 +65,14 @@
                     sent.innerHTML = JSON.stringify(payload, undefined, 4);
                     received.innerHTML = JSON.stringify(data, undefined, 4);
                     if (data.error) {
-                        output.innerHTML += `<br><strong>Error</strong>: ${data.message}`
+                        output.innerHTML += `<br><strong>Error:</strong> ${data.message}`;
                     } else {
-                        output.innerHTML += `<br><strong>Response from broker service</strong>: ${data.message}`
+                        output.innerHTML += `<br><strong>Response from broker service</strong>: ${data.message}`;
                     }
                 })
                 .catch((error) => {
                     output.innerHTML += "<br><br>Error: " + error;
                 })
-
         })
 
         brokerBtn.addEventListener("click", function () {
