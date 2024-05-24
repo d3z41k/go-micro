@@ -18,6 +18,7 @@ authApp
 brokerApp
 frontApp
 loggerServiceApp
+mailerApp
 
 # Log files
 logrus.log
