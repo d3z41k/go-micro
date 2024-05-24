@@ -146,7 +146,7 @@ func (app *Config) sendMail(w http.ResponseWriter, msg MailPayload) {
 	jsonData, _ := json.MarshalIndent(msg, "", "\t")
 
 	// Call the mail service
-	mailServiceURL := "http://mail-service/send"
+	mailServiceURL := "http://mailer-service/send"
 
 	// Post to mail service
 	request, err := http.NewRequest("POST", mailServiceURL, bytes.NewBuffer(jsonData))
@@ -165,7 +165,7 @@ func (app *Config) sendMail(w http.ResponseWriter, msg MailPayload) {
 	}
 	defer response.Body.Close()
 
-	// Make sure we get back the correct status code
+	// Make sure we get back the right status code
 	if response.StatusCode != http.StatusAccepted {
 		app.errorJSON(w, errors.New("error calling mail service"))
 		return
