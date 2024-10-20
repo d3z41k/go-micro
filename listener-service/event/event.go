@@ -4,7 +4,7 @@ import amqp "github.com/rabbitmq/amqp091-go"
 
 func declareExchange(ch *amqp.Channel) error {
 	err := ch.ExchangeDeclare(
-		"events",
+		"logs_topic",
 		"topic",
 		true,
 		false,

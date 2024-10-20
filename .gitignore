@@ -19,6 +19,7 @@ brokerApp
 frontApp
 loggerServiceApp
 mailerApp
+listenerApp
 
 # Log files
 logrus.log
@@ -27,3 +28,4 @@ tls/
 # Database
 /project/db-data/postgres/*
 /project/db-data/mongo/*
+/project/db-data/rabbitmq/*
